@@ -10,7 +10,8 @@ import "./assets/main.css";
 
 const app = createApp(App);
 
-app.use(createPinia());
+const pinia = createPinia();
+app.use(pinia);
 app.use(router);
 app.use(VueAxios, axios);
 app.provide("axios", app.config.globalProperties.axios);

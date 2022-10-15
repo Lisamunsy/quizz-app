@@ -2,14 +2,19 @@
   <main>
     <div class="about">
       <h1>This is an api test results:</h1>
-      <p>
+      <ul>
+        <li v-for="question in questions" :key="question">
+        {{question.question}}
+      </li>
+      </ul>
+      <!-- <p>
         RangQuestion {{ rangQuestion + 1 }}
         <span><button v-on:click="setRangQuestion()">Rang+</button></span>
-      </p>
+      </p> -->
       <!-- <p v-if="loading">Loading posts...</p> -->
-      <p v-if="error">{{ error.message }}</p>
+      <!-- <p v-if="error">{{ error.message }}</p> -->
       <!-- <button v-on:click="fetchApiTest1()">Gogo</button> -->
-      <div class="one-question" v-if="rang">
+      <!-- <div class="one-question" v-if="rang">
         <h5>Question n°{{ rang.id }}</h5>
         <ul>
           <li>
@@ -24,7 +29,7 @@
             {{ rang.correct_answers }}
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>
@@ -36,14 +41,14 @@ import { useApiTestStore } from "../stores/questionsApi";
 
 const store = useApiTestStore();
 
-const { rangQuestion, getCurrentQuestion, getAnswers } = storeToRefs(store);
+const { rangQuestion, getCurrentQuestion, getAnswers, questions } = storeToRefs(store);
 const { fetchApiTest1, setRangQuestion, resetRangQuestion } = store;
 
-const rang = getCurrentQuestion;
-const ansTest = getAnswers;
+// const rang = getCurrentQuestion;
+// const ansTest = getAnswers;
 
 onMounted(() => {
-  resetRangQuestion();
+  // resetRangQuestion();
   fetchApiTest1();
 });
 </script>

@@ -13,7 +13,7 @@ import HomeWelcome from "../components/HomeWelcome.vue";
 <style>
 .home {
   background: #151547;
-  width: 400px;
+  width: 600px;
   height: 600px;
   margin: 0 auto;
   border-radius: 15px;
