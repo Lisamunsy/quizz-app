@@ -4,7 +4,7 @@
       <h1>This is an api test results:</h1>
       <ul>
         <li v-for="question in questions" :key="question">
-        {{question.question}}
+        {{decode(question.question)}}
       </li>
       </ul>
       <!-- <p>
@@ -35,6 +35,7 @@
 </template>
 
 <script setup>
+import {decode} from 'html-entities';
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
 import { useApiTestStore } from "../stores/questionsApi";
